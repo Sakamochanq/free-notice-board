@@ -110,18 +110,19 @@ function escapeHTML(str) {
 // Show temporary message
 function showMessage(message, type = 'success') {
     const messageDiv = document.createElement('div');
-    const bgColor = type === 'error' ? '#e74c3c' : '#27ae60';
+    const textColor = type === 'error' ? '#e74c3c' : '#27ae60';
     messageDiv.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        background: ${bgColor};
-        color: white;
-        padding: 15px 25px;
-        border-radius: 5px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        background: #e0e5ec;
+        color: ${textColor};
+        padding: 18px 30px;
+        border-radius: 15px;
+        box-shadow: 8px 8px 16px #a3a8b0, -8px -8px 16px #ffffff;
         z-index: 1000;
         animation: slideIn 0.3s ease-out;
+        font-weight: 600;
     `;
     messageDiv.textContent = message;
     

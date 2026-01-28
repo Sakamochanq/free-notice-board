@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #e0e5ec;
     min-height: 100vh;
     padding: 20px;
 }
@@ -14,56 +14,67 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+    background: #e0e5ec;
+    border-radius: 30px;
+    overflow: visible;
 }
 
 header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 30px;
+    background: #e0e5ec;
+    color: #4a5568;
+    padding: 40px 30px 30px;
     text-align: center;
+    border-radius: 30px 30px 0 0;
+    box-shadow: 
+        inset 8px 8px 16px #bebebe,
+        inset -8px -8px 16px #ffffff;
 }
 
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8),
+                 -2px -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .subtitle {
     font-size: 1rem;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 main {
     padding: 30px;
+    background: #e0e5ec;
 }
 
 /* Form Styling */
 .post-form {
-    background: #f8f9fa;
-    padding: 25px;
-    border-radius: 8px;
+    background: #e0e5ec;
+    padding: 30px;
+    border-radius: 20px;
     margin-bottom: 30px;
+    box-shadow: 
+        12px 12px 24px #a3a8b0,
+        -12px -12px 24px #ffffff;
 }
 
 .post-form h2 {
-    color: #333;
-    margin-bottom: 20px;
+    color: #4a5568;
+    margin-bottom: 25px;
     font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
-    color: #555;
-    font-weight: 500;
+    margin-bottom: 10px;
+    color: #4a5568;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .required {
@@ -73,102 +84,125 @@ main {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
     font-size: 1rem;
     font-family: inherit;
-    transition: border-color 0.3s;
+    background: #e0e5ec;
+    color: #4a5568;
+    box-shadow: 
+        inset 6px 6px 12px #a3a8b0,
+        inset -6px -6px 12px #ffffff;
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #667eea;
+    box-shadow: 
+        inset 8px 8px 16px #a3a8b0,
+        inset -8px -8px 16px #ffffff;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #a0aec0;
 }
 
 .form-group textarea {
     resize: vertical;
-    min-height: 100px;
+    min-height: 120px;
 }
 
 .btn-submit {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 12px 30px;
+    background: #e0e5ec;
+    color: #4a5568;
+    padding: 14px 35px;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 
+        8px 8px 16px #a3a8b0,
+        -8px -8px 16px #ffffff;
+    transition: all 0.3s ease;
 }
 
 .btn-submit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 
+        6px 6px 12px #a3a8b0,
+        -6px -6px 12px #ffffff;
 }
 
 .btn-submit:active {
-    transform: translateY(0);
+    box-shadow: 
+        inset 4px 4px 8px #a3a8b0,
+        inset -4px -4px 8px #ffffff;
 }
 
 /* Posts Section */
 .posts-section h2 {
-    color: #333;
-    margin-bottom: 20px;
+    color: #4a5568;
+    margin-bottom: 25px;
     font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .posts-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .loading,
 .no-posts {
     text-align: center;
-    color: #888;
+    color: #718096;
     padding: 30px;
     font-style: italic;
 }
 
 .post-card {
-    background: #f8f9fa;
-    border-left: 4px solid #667eea;
-    padding: 20px;
-    border-radius: 5px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    background: #e0e5ec;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 
+        10px 10px 20px #a3a8b0,
+        -10px -10px 20px #ffffff;
+    transition: all 0.3s ease;
 }
 
 .post-card:hover {
-    transform: translateX(5px);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 
+        12px 12px 24px #a3a8b0,
+        -12px -12px 24px #ffffff;
 }
 
 .post-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     flex-wrap: wrap;
     gap: 10px;
 }
 
 .post-name {
-    color: #667eea;
-    font-weight: 600;
+    color: #5a67d8;
+    font-weight: 700;
     font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .post-timestamp {
-    color: #888;
+    color: #718096;
     font-size: 0.85rem;
 }
 
 .post-description {
-    color: #333;
+    color: #4a5568;
     line-height: 1.6;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -176,11 +210,14 @@ main {
 
 /* Footer */
 footer {
-    background: #f8f9fa;
-    padding: 20px;
+    background: #e0e5ec;
+    padding: 25px;
     text-align: center;
-    color: #666;
-    border-top: 1px solid #e0e0e0;
+    color: #718096;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 
+        inset 4px 4px 8px #bebebe,
+        inset -4px -4px 8px #ffffff;
 }
 
 /* Animations */
