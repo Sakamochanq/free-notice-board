@@ -65,7 +65,7 @@ async function createPost() {
     const description = descriptionInput.value.trim();
     
     if (!description) {
-        alert('Please enter a description');
+        showMessage('Please enter a description', 'error');
         return;
     }
     
@@ -93,10 +93,10 @@ async function createPost() {
         await loadPosts();
         
         // Show success message
-        showMessage('Post created successfully!');
+        showMessage('Post created successfully!', 'success');
     } catch (error) {
         console.error('Error creating post:', error);
-        alert('Error creating post. Please try again.');
+        showMessage('Error creating post. Please try again.', 'error');
     }
 }
 
@@ -107,14 +107,15 @@ function escapeHTML(str) {
     return div.innerHTML;
 }
 
-// Show temporary success message
-function showMessage(message) {
+// Show temporary message
+function showMessage(message, type = 'success') {
     const messageDiv = document.createElement('div');
+    const bgColor = type === 'error' ? '#e74c3c' : '#27ae60';
     messageDiv.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        background: #27ae60;
+        background: ${bgColor};
         color: white;
         padding: 15px 25px;
         border-radius: 5px;
@@ -129,34 +130,9 @@ function showMessage(message) {
     setTimeout(() => {
         messageDiv.style.animation = 'slideOut 0.3s ease-out';
         setTimeout(() => {
-            document.body.removeChild(messageDiv);
+            if (messageDiv.parentNode) {
+                document.body.removeChild(messageDiv);
+            }
         }, 300);
     }, 3000);
 }
-
-// Add animations
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);

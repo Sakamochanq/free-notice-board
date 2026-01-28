@@ -60,11 +60,22 @@ app.post('/api/posts', (req, res) => {
         return res.status(400).json({ error: 'Description is required' });
     }
 
+    // Server-side validation
+    const trimmedDescription = description.trim();
+    if (trimmedDescription.length > 5000) {
+        return res.status(400).json({ error: 'Description is too long (max 5000 characters)' });
+    }
+
+    const trimmedName = name && name.trim() !== '' ? name.trim() : 'Unknown';
+    if (trimmedName.length > 50) {
+        return res.status(400).json({ error: 'Name is too long (max 50 characters)' });
+    }
+
     const posts = readPosts();
     const newPost = {
         id: Date.now(),
-        name: name && name.trim() !== '' ? name : 'Unknown',
-        description: description.trim(),
+        name: trimmedName,
+        description: trimmedDescription,
         timestamp: new Date().toISOString()
     };
 
